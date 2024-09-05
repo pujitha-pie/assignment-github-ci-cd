@@ -17,10 +17,11 @@ jobs:
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
+        java-version: '8'
+        distribution: 'adopt'
     - name: Build with Maven
+      env: 
+        DOCKER_API_VERSION: '1.24'
       run: mvn clean install 
 
     - name: Upload Build Artifacts
